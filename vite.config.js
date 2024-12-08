@@ -4,15 +4,19 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 5173, // Development server port
-    host: true, // Allows access from local network
+    port: 5173,
+    host: true,
+  },
+  resolve: {
+    alias: {
+      '@': '/src', // Alias for src directory
+    },
   },
   build: {
     rollupOptions: {
-      input: './index.html', // Ensures the entry point is correct
+      input: './index.html',
     },
   },
 });
-
 
 
