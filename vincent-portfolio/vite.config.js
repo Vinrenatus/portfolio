@@ -9,7 +9,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': '/src', // Alias for src directory
+      '@': '/src',
+      'react-icons': 'react-icons/fa', // Adjusted to point to the correct directory
     },
   },
   build: {
@@ -18,5 +19,6 @@ export default defineConfig({
     },
   },
 });
+
 
 

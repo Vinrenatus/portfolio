@@ -1,3 +1,4 @@
+// App.jsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "./components/layout/Navbar";
@@ -62,31 +63,34 @@ function App() {
         {/* Search Results */}
         {searchResults.length > 0 && (
           <div className="container mx-auto px-4 mb-12">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {searchResults.map((result, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  <h3 className="text-lg font-semibold text-emerald-800 mb-2">
-                    {result.title}
-                  </h3>
-                  <p className="text-emerald-600 mb-2">{result.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {result.tags?.map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="px-2 py-1 text-sm bg-emerald-100 text-emerald-700 rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+              <h3 className="text-lg font-semibold text-emerald-800 mb-2">Search Results</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {searchResults.map((result, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="p-6 rounded-xl shadow-lg"
+                  >
+                    <h3 className="text-lg font-semibold text-emerald-800 mb-2">
+                      {result.title}
+                    </h3>
+                    <p className="text-emerald-600 mb-2">{result.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {result.tags?.map((tag, idx) => (
+                        <span
+                          key={idx}
+                          className="px-2 py-1 text-sm bg-emerald-100 text-emerald-700 rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         )}
@@ -138,3 +142,7 @@ function App() {
 }
 
 export default App;
+
+
+
+
