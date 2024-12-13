@@ -16,19 +16,25 @@ const ContactAndRates = () => {
 
   const services = [
     {
-      image: "/path/to/image1.jpg",
-      title: "Web Development",
-      hourlyRate: "$50/hr",
-      details: ["Responsive web design", "Frontend & Backend development", "SEO optimization"]
+      image: "https://images.pexels.com/photos/7605805/pexels-photo-7605805.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      title: "Software Engineering",
+      hourlyRate: <strong>$30/hr</strong>,
+      details: ["Full-stack development: Back-end and Front-end", "Application development", "System integration","Debugging"]
     },
     {
-      image: "/path/to/image2.jpg",
-      title: "Graphic Design",
-      hourlyRate: "$40/hr",
-      details: ["Logo design", "Banner creation", "Business card design"]
+      image: "https://images.pexels.com/photos/8653735/pexels-photo-8653735.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      title: "8-4-4 and IGCSE Tutoring",
+      hourlyRate: <strong>$15/hr</strong>,
+      details: ["Mathematics, Physics and Chemistry Syllabus Coverage & Revision", "Science Project Coaching and Mangement", "KCSE and IGCSE Test preparation","Basic Coding Classes; HTML & CSS, Text-based JS and Python"]
     },
-    // Add more services as needed
+    {
+      image: "https://images.pexels.com/photos/5060985/pexels-photo-5060985.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      title: "Professional Writing",
+      hourlyRate: <strong>Project-based</strong>,
+      details: [" Academic Writing: Assignments & Thesis/Proposals", "Editing and proofreading", "Technical writing","Content Writing; Crypto, forex & travel articles"]
+    }
   ];
+  
 
   const handleCreditCardPayment = () => {
     setShowCardForm(true);
@@ -201,14 +207,14 @@ const ContactAndRates = () => {
               >
                 <img src="/path/to/paypal-gif.gif" alt="PayPal" className="w-12 h-12 mx-auto" />
               </a>
-              {/* Credit Card */}
+              {/* Quick Order */}
               <button
                 onClick={handleCreditCardPayment}
                 className="text-gray-800 hover:text-gray-900 focus:ring focus:ring-gray-300 rounded-full p-2 transition duration-300 ease-in-out bg-lime-500 text-white hover:bg-lime-600"
-                aria-label="Credit Card"
-                title="Credit Card Payment"
+                aria-label="Quick Order"
+                title="Make quick order"
               >
-                <img src="/path/to/credit-card-icon.png" alt="Credit Card" className="w-12 h-12 mx-auto" />
+                <img src="/path/to/credit-card-icon.png" alt="Quick Order" className="w-12 h-12 mx-auto" />
               </button>
             </div>
           </div>
@@ -322,5 +328,12 @@ const ContactAndRates = () => {
 };
 
 export default ContactAndRates;
+
+
+
+
+
+
+
 
 
