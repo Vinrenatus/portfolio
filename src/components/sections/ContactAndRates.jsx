@@ -20,8 +20,12 @@ const ContactAndRates = () => {
     try {
       // Save message to JSON server
       await apiService.create('messages', {
-        ...formData,
-        createdAt: new Date().toISOString()
+        name: formData.name,
+        email: formData.email,
+        service: formData.service,
+        priceRange: formData.priceRange,
+        message: formData.message,
+        created_at: new Date().toISOString()
       });
       
       setSubmitted(true);

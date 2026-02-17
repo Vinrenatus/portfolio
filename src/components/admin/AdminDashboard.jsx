@@ -51,7 +51,7 @@ const AdminDashboard = () => {
         apiService.getAll('testimonials'),
         apiService.getAll('comments'),
         apiService.getAll('skills'),
-        apiService.getAll('workHistory'),
+        apiService.getAll('work_history'),  // Fixed: use snake_case
         apiService.getAll('education')
       ]);
       setMessages(messagesData || []);

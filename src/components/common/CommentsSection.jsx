@@ -45,11 +45,13 @@ const CommentsSection = () => {
     e.preventDefault();
     try {
       await apiService.create('comments', {
-        ...newComment,
-        createdAt: new Date().toISOString(),
+        name: newComment.name,
+        content: newComment.content,
+        emoji: newComment.emoji,
+        type: 'professional',
+        created_at: new Date().toISOString(),
         reactions: { likes: 0 },
-        replies: [],
-        type: 'professional'
+        replies: []
       });
       setNewComment({ name: '', content: '', emoji: null });
       setShowEmojiPicker(false);
@@ -62,7 +64,7 @@ const CommentsSection = () => {
       const localComment = {
         ...newComment,
         id: Date.now(),
-        createdAt: new Date().toISOString(),
+        created_at: new Date().toISOString(),
         reactions: { likes: 0 },
         replies: [],
         type: 'professional'
