@@ -29,7 +29,8 @@ const CommentsSection = () => {
       // Sort by date (newest first)
       setComments(data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
     } catch (error) {
-      console.error('Error fetching comments:', error);
+      console.log('Comments API unavailable, displaying without comments');
+      setComments([]);
     } finally {
       setLoading(false);
     }
@@ -53,9 +54,22 @@ const CommentsSection = () => {
       setNewComment({ name: '', content: '', emoji: null });
       setShowEmojiPicker(false);
       fetchComments();
+      alert('Comment posted successfully!');
     } catch (error) {
       console.error('Error posting comment:', error);
-      alert('Error posting comment');
+      alert('Comment added locally! (Note: In production without JSON Server, comments are temporary and won\'t persist)');
+      // Add locally for demo
+      const localComment = {
+        ...newComment,
+        id: Date.now(),
+        createdAt: new Date().toISOString(),
+        reactions: { likes: 0 },
+        replies: [],
+        type: 'professional'
+      };
+      setComments(prev => [localComment, ...prev]);
+      setNewComment({ name: '', content: '', emoji: null });
+      setShowEmojiPicker(false);
     }
   };
 
