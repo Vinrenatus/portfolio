@@ -133,8 +133,7 @@ const AdminDashboard = () => {
   const stats = [
     { label: 'Total Projects', value: projects.length, icon: Briefcase, color: 'emerald' },
     { label: 'Testimonials', value: testimonials.length, icon: Users, color: 'cyan' },
-    { label: 'Messages', value: messages.length, icon: MessageSquare, color: 'purple' },
-    { label: 'Avg Project Value', value: '$5,000', icon: DollarSign, color: 'amber' }
+    { label: 'Messages', value: messages.length, icon: MessageSquare, color: 'purple' }
   ];
 
   return (
@@ -304,12 +303,6 @@ const AdminDashboard = () => {
                             <div className="flex items-center gap-2 text-gray-400">
                               <Briefcase className="w-4 h-4" />
                               <span>{msg.service}</span>
-                            </div>
-                          )}
-                          {msg.priceRange && (
-                            <div className="flex items-center gap-2 text-gray-400">
-                              <DollarSign className="w-4 h-4" />
-                              <span>{msg.priceRange}</span>
                             </div>
                           )}
                         </div>

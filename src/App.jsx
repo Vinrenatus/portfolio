@@ -4,6 +4,7 @@ import { Sun, Moon, User, LogOut } from 'lucide-react';
 import { useTheme } from './context/ThemeContext';
 import { useAuth } from './context/AuthContext';
 import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 import Hero from "./components/sections/Hero";
 import About from "./components/pages/About";
 import Skills from "./components/sections/Skills";
@@ -50,7 +51,9 @@ function App() {
       {/* Main Content */}
       <main>
         {/* Hero Section */}
-        <Hero />
+        <div id="home">
+          <Hero />
+        </div>
 
         {/* Admin Dashboard - Only visible when logged in as admin */}
         {currentUser && isAdmin && (
@@ -60,7 +63,9 @@ function App() {
         )}
 
         {/* About Section */}
-        <About />
+        <div id="about">
+          <About />
+        </div>
 
         {/* Search Bar */}
         <div className="sticky top-20 z-40 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm py-4 px-4">
@@ -106,21 +111,17 @@ function App() {
         )}
 
         {/* Skills Section */}
-        <section className="py-12 bg-gray-50 dark:bg-gray-800/50">
-          <div className="container mx-auto px-4">
-            <Skills />
-          </div>
-        </section>
+        <div id="skills">
+          <Skills />
+        </div>
 
         {/* Projects Section */}
-        <section className="py-12 bg-white dark:bg-gray-900">
-          <div className="container mx-auto px-4">
-            <Projects />
-          </div>
-        </section>
+        <div id="projects">
+          <Projects />
+        </div>
 
         {/* Work History Section */}
-        <div className="py-12">
+        <div id="experience">
           <WorkHistory />
         </div>
 
@@ -132,11 +133,9 @@ function App() {
         </section>
 
         {/* Contact and Rates Section */}
-        <section className="py-12 bg-white dark:bg-gray-900">
-          <div className="container mx-auto px-4">
-            <ContactAndRates />
-          </div>
-        </section>
+        <div id="contact">
+          <ContactAndRates />
+        </div>
 
         {/* Comment Box */}
         <section className="py-12 bg-emerald-50 dark:bg-emerald-900/10">
@@ -155,6 +154,9 @@ function App() {
         {/* Comments Section */}
         <CommentsSection />
       </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

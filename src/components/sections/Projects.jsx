@@ -19,14 +19,19 @@ const Projects = () => {
     description: '',
     tags: [],
     year: '',
-    category: ''
+    category: '',
+    image: '',
+    link: ''
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await createProject(formData);
-      setFormData({ title: '', type: '', description: '', tags: [], year: '', category: '' });
+      await createProject({
+        ...formData,
+        link: formData.link || null
+      });
+      setFormData({ title: '', type: '', description: '', tags: [], year: '', category: '', image: '', link: '' });
       setShowForm(false);
     } catch (err) {
       console.error('Error creating project:', err);
@@ -136,6 +141,28 @@ const Projects = () => {
                   placeholder="e.g., React, Node.js, MongoDB"
                 />
               </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                  <label className="block text-emerald-700 dark:text-emerald-300 mb-1">Image URL</label>
+                  <input
+                    type="url"
+                    value={formData.image}
+                    onChange={(e) => setFormData({...formData, image: e.target.value})}
+                    className="w-full p-2 border border-emerald-200 dark:border-gray-700 rounded bg-white dark:bg-gray-700 text-emerald-900 dark:text-white"
+                    placeholder="https://example.com/image.jpg"
+                  />
+                </div>
+                <div>
+                  <label className="block text-emerald-700 dark:text-emerald-300 mb-1">Project Link (optional)</label>
+                  <input
+                    type="url"
+                    value={formData.link}
+                    onChange={(e) => setFormData({...formData, link: e.target.value})}
+                    className="w-full p-2 border border-emerald-200 dark:border-gray-700 rounded bg-white dark:bg-gray-700 text-emerald-900 dark:text-white"
+                    placeholder="https://example.com"
+                  />
+                </div>
+              </div>
               <button
                 type="submit"
                 className="px-4 py-2 bg-emerald-600 text-white rounded hover:bg-emerald-700 transition-colors"
@@ -160,6 +187,8 @@ const Projects = () => {
                 type={project.type}
                 description={project.description}
                 tags={project.tags}
+                image={project.image}
+                link={project.link}
                 onDelete={isAdmin ? () => deleteProject(project.id) : undefined}
               />
             ))}

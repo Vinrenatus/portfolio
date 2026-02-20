@@ -3,7 +3,7 @@
 export const PERSONAL_INFO = {
   name: "Hamman Muraya",
   title: "Senior Software Engineer & AI Specialist",
-  email: "hammanmuraya009@gmail.com",
+  email: "hamanmuraya009@gmail.com",
   phone: "+1 (253) 378-4293",
   location: "Auburn, WA",
   github: "https://github.com/MurayaSoftTouch",

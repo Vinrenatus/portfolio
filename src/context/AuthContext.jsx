@@ -32,15 +32,18 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = (email, password) => {
-    // Hardcoded credentials for demo
-    if (email === 'haman009@gmail.com' && password === 'Lovelight369$') {
+    // Admin credentials check (configured via environment variables)
+    const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'hamanmuraya009@gmail.com';
+    const adminPassword = import.meta.env.VITE_ADMIN_PASSWORD || 'Lovelight369$';
+    
+    if (email === adminEmail && password === adminPassword) {
       const user = {
         id: 1,
-        email: 'haman009@gmail.com',
+        email: adminEmail,
         name: 'Hamman Muraya',
         role: 'admin'
       };
-      
+
       setCurrentUser(user);
       setIsAdmin(true);
       localStorage.setItem('currentUser', JSON.stringify(user));
@@ -54,7 +57,7 @@ export const AuthProvider = ({ children }) => {
         name: email.split('@')[0],
         role: 'user'
       };
-      
+
       setCurrentUser(user);
       setIsAdmin(false);
       localStorage.setItem('currentUser', JSON.stringify(user));

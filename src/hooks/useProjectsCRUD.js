@@ -12,12 +12,16 @@ export const useProjectsCRUD = () => {
   const fetchProjects = async () => {
     try {
       setLoading(true);
-      // Try to fetch from API, fallback to static data
+      // Clear any cached localStorage projects to ensure fresh data
+      localStorage.removeItem('projects');
+      
+      // Try to fetch from Supabase API, fallback to static data
       let data;
       try {
         data = await apiService.getAll('projects');
+        console.log('Loaded projects from Supabase:', data.length, 'projects');
       } catch (apiError) {
-        console.log('API unavailable, using static data');
+        console.log('Supabase unavailable, using static data');
         data = PROJECTS_DATA;
       }
       setProjects(data);

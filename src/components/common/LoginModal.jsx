@@ -71,12 +71,6 @@ const LoginModal = ({ isOpen, onClose, onLogin }) => {
             Login
           </button>
         </form>
-        
-        <div className="mt-4 text-sm text-gray-600 dark:text-gray-400">
-          <p><strong>Demo credentials:</strong></p>
-          <p>Email: haman009@gmail.com</p>
-          <p>Password: Lovelight369$</p>
-        </div>
       </div>
     </div>
   );
