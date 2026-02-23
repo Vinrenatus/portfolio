@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, Clock, Send, MessageSquare, Sparkles, Zap, DollarSign, CheckCircle, ArrowRight, User, Calendar } from 'lucide-react';
+import { Mail, Clock, Send, MessageSquare, Sparkles, Zap, DollarSign, CheckCircle, ArrowRight, User, Calendar } from 'lucide-react';
 import apiService from '../../services/apiService';
 import { SERVICES_DATA } from '../../data/projects';
 import { PERSONAL_INFO } from '../../constants/config';
@@ -66,7 +66,6 @@ const ContactAndRates = () => {
   };
 
   const contactInfo = [
-    { icon: Phone, label: 'Phone', value: PERSONAL_INFO.phone, color: 'from-emerald-400 to-cyan-400', href: `tel:${PERSONAL_INFO.phone}` },
     { icon: Mail, label: 'Email', value: PERSONAL_INFO.email, color: 'from-blue-400 to-purple-400', href: `mailto:${PERSONAL_INFO.email}` },
     { icon: Clock, label: 'Availability', value: 'Available for Hire', color: 'from-orange-400 to-red-400', href: null },
     { icon: Calendar, label: 'Response Time', value: 'Within 24 Hours', color: 'from-purple-400 to-pink-400', href: null },

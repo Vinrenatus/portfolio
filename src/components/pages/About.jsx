@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { User, Award, Book, Code, Sparkles, Zap, Target, Globe, Heart, Star } from 'lucide-react';
+import { useTheme } from '../../context/ThemeContext';
 
 const About = () => {
   const containerRef = useRef(null);
+  const { theme } = useTheme();
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
@@ -52,55 +54,65 @@ const About = () => {
   ];
 
   const competencies = [
-    { icon: Target, title: 'Technical Leadership', desc: 'Leading teams to build exceptional products', color: 'from-emerald-400 to-cyan-400' },
-    { icon: Book, title: 'Technical Writing', desc: 'RLHF documentation and model training guides', color: 'from-blue-400 to-purple-400' },
-    { icon: Globe, title: 'Cross-Functional Collaboration', desc: 'Working across teams and timezones', color: 'from-orange-400 to-red-400' },
-    { icon: Zap, title: 'Remote Work', desc: '5+ years of distributed team experience', color: 'from-purple-400 to-pink-400' },
+    { icon: Target, title: 'Technical Leadership & Mentorship', desc: 'Leading teams to build exceptional products', color: 'from-emerald-400 to-cyan-400' },
+    { icon: Book, title: 'IT Systems Administration & Technical Support', desc: 'Managing systems and providing technical expertise', color: 'from-blue-400 to-purple-400' },
+    { icon: Globe, title: 'AI Model Evaluation & Data Analysis', desc: 'Expert evaluation of AI models and data insights', color: 'from-orange-400 to-red-400' },
+    { icon: Zap, title: 'Process Automation & Cloud Computing', desc: 'Automating workflows and cloud infrastructure', color: 'from-purple-400 to-pink-400' },
   ];
 
   const education = [
     {
       icon: '🎓',
       degree: 'PhD in Software Engineering',
-      school: 'California State University, USA',
+      school: 'California State University',
+      location: 'USA',
       period: '2019 – 2022',
       focus: 'Scalable Software Architectures, Distributed Systems, and Performance Modeling',
       color: 'from-emerald-400 to-cyan-400'
     },
     {
-      icon: '📜',
-      degree: 'Software Engineering Bootcamp',
-      school: 'Moringa School, Kenya',
-      period: 'Professional Certification',
-      focus: '1,000+ hours of coding practice in Python, Flask/Django, and React.js',
-      color: 'from-blue-400 to-purple-400'
-    },
-    {
       icon: '🎓',
       degree: 'MSc in Software Engineering',
-      school: 'Lincoln University, UK',
-      period: '2015 – 2017 | Merit',
-      focus: 'Advanced Software Engineering Principles',
-      color: 'from-orange-400 to-red-400'
+      school: 'Lincoln University',
+      location: 'UK',
+      period: '2015 – 2017',
+      focus: 'Merit',
+      color: 'from-blue-400 to-purple-400'
     },
     {
       icon: '📚',
       degree: 'BSc in Applied Computer Science',
-      school: 'University of Nairobi, Kenya',
+      school: 'University of Nairobi',
+      location: 'Kenya',
       period: '2010 – 2014',
       focus: 'Second Class Honours (Upper Division)',
+      color: 'from-orange-400 to-red-400'
+    },
+    {
+      icon: '📜',
+      degree: 'Software Engineering Bootcamp (Full-Stack)',
+      school: 'Moringa School',
+      location: 'Kenya',
+      period: '2022',
+      focus: '1,000+ hours of coding practice in Python, Flask/Django, and React.js',
       color: 'from-purple-400 to-pink-400'
     },
   ];
 
   return (
-    <section 
+    <section
       ref={containerRef}
-      id="about" 
-      className="py-24 bg-gradient-to-br from-gray-900 via-emerald-950/20 to-black relative overflow-hidden min-h-screen"
+      id="about"
+      className={`py-24 relative overflow-hidden min-h-screen transition-colors duration-500 ${
+        theme === 'light' 
+          ? 'bg-gradient-to-br from-gray-50 via-emerald-50/30 to-white' 
+          : 'bg-gradient-to-br from-gray-900 via-emerald-950/20 to-black'
+      }`}
     >
       {/* Animated Grid Background */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
+      <div className={`absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.03)_1px,transparent_1px)] bg-[size:50px_50px] ${
+        theme === 'light' ? 'opacity-50' : 'opacity-100'
+      }`} />
       
       {/* Radial Gradient Overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.08),transparent_70%)]" />
@@ -270,9 +282,7 @@ const About = () => {
               </div>
               
               <p className="text-gray-300 leading-relaxed text-lg">
-                Expert in <span className="text-emerald-400 font-semibold">Reinforcement Learning from Human Feedback (RLHF)</span> and <span className="text-cyan-400 font-semibold">Supervised Fine-Tuning (SFT)</span> for Large Language Models (LLMs).
-                Combines deep technical proficiency in Python, Elixir, and TypeScript with the linguistic precision required for high-quality
-                data annotation. Native Swahili speaker with extensive experience in technical localization and cross-cultural AI model evaluation.
+                Senior Software Engineer and AI Training Specialist with a Ph.D. in Software Engineering and over 8 years of experience building scalable systems and training advanced AI models. Expert in <span className="text-emerald-400 font-semibold">Reinforcement Learning from Human Feedback (RLHF)</span>, <span className="text-cyan-400 font-semibold">Supervised Fine-Tuning (SFT)</span>, and Expert-Level Data Annotation for Large Language Models (LLMs). Combines deep technical proficiency in Python, Elixir, and TypeScript with the linguistic precision required for high-quality data annotation, chain-of-thought reasoning, and model evaluation.
               </p>
 
               {/* Decorative corner */}
@@ -388,7 +398,7 @@ const About = () => {
                       <h4 className={`text-lg font-bold bg-gradient-to-r ${edu.color} bg-clip-text text-transparent mb-1`}>
                         {edu.degree}
                       </h4>
-                      <p className="text-gray-300 font-medium">{edu.school}</p>
+                      <p className="text-gray-300 font-medium">{edu.school} {edu.location && `(${edu.location})`}</p>
                       <p className="text-gray-500 text-sm">{edu.period}</p>
                     </div>
                   </div>

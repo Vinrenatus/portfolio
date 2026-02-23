@@ -45,7 +45,7 @@ It will complete in 2-3 minutes.
 ### Test Your Database:
 
 1. Open your Netlify site
-2. Login: `haman009@gmail.com` / `Lovelight369$`
+2. Login: `victor009@gmail.com` / `Lovelight369$`
 3. Go to Admin Dashboard
 4. **Add a new project**
 5. **Refresh the page**

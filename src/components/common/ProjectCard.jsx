@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Trash2, ExternalLink } from 'lucide-react';
+import { Trash2, ExternalLink, Code2 } from 'lucide-react';
 
 const ProjectCard = ({ title, type, description, tags, image, link, onDelete }) => {
   const hasLink = link && link !== null;
-  
+
   return (
     <motion.div
       whileHover={{ y: -10, scale: 1.02 }}
@@ -35,17 +35,31 @@ const ProjectCard = ({ title, type, description, tags, image, link, onDelete }) 
             transition={{ duration: 0.5 }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60" />
-          
-          {/* Link badge */}
+
+          {/* Link badge with Check Code popup */}
           {hasLink && (
             <a
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute bottom-3 right-3 p-2 rounded-full bg-emerald-600 text-white hover:bg-emerald-700 transition-all duration-300 shadow-lg"
+              className="absolute bottom-3 right-3 p-2 rounded-full bg-emerald-600 text-white hover:bg-emerald-700 transition-all duration-300 shadow-lg group/link"
               aria-label={`View ${title} project`}
             >
               <ExternalLink size={18} />
+              
+              {/* Check Code Popup Tooltip */}
+              <motion.div
+                initial={{ opacity: 0, y: 10, scale: 0.8 }}
+                whileHover={{ opacity: 1, y: -45, scale: 1 }}
+                className="absolute left-1/2 -translate-x-1/2 px-3 py-2 bg-gradient-to-r from-emerald-600 to-cyan-600 text-white text-xs font-semibold rounded-lg shadow-xl whitespace-nowrap pointer-events-none"
+              >
+                <div className="flex items-center gap-2">
+                  <Code2 size={14} />
+                  <span>Check Code</span>
+                </div>
+                {/* Arrow */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-2 h-2 bg-emerald-600 rotate-45" />
+              </motion.div>
             </a>
           )}
         </div>
@@ -63,7 +77,7 @@ const ProjectCard = ({ title, type, description, tags, image, link, onDelete }) 
         <h3 className="text-xl font-bold text-gray-100 mb-3 group-hover:text-emerald-400 transition-colors duration-300">
           {title}
         </h3>
-        
+
         {/* Description Card with lime green background */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -73,7 +87,7 @@ const ProjectCard = ({ title, type, description, tags, image, link, onDelete }) 
         >
           <p className="text-lime-100 text-sm leading-relaxed">{description}</p>
         </motion.div>
-        
+
         <div className="flex flex-wrap gap-2 mt-auto">
           {tags?.map((tag, index) => (
             <motion.span
@@ -95,9 +109,24 @@ const ProjectCard = ({ title, type, description, tags, image, link, onDelete }) 
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
+            className="mt-4 inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors font-medium group/btn"
           >
-            View Project <ExternalLink size={16} />
+            <span>View Project</span>
+            <ExternalLink size={16} className="group-hover/btn:rotate-45 transition-transform" />
+            
+            {/* Check Code Popup for text link */}
+            <motion.div
+              initial={{ opacity: 0, y: 10, scale: 0.8 }}
+              whileHover={{ opacity: 1, y: -50, scale: 1 }}
+              className="absolute left-1/2 -translate-x-1/2 px-3 py-2 bg-gradient-to-r from-emerald-600 to-cyan-600 text-white text-xs font-semibold rounded-lg shadow-xl whitespace-nowrap pointer-events-none"
+            >
+              <div className="flex items-center gap-2">
+                <Code2 size={14} />
+                <span>Check Code</span>
+              </div>
+              {/* Arrow */}
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-2 h-2 bg-emerald-600 rotate-45" />
+            </motion.div>
           </a>
         )}
       </div>

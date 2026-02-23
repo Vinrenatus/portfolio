@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
     // Admin credentials check (configured via environment variables)
     const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'hamanmuraya009@gmail.com';
     const adminPassword = import.meta.env.VITE_ADMIN_PASSWORD || 'Lovelight369$';
-    
+
     if (email === adminEmail && password === adminPassword) {
       const user = {
         id: 1,

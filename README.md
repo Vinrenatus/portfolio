@@ -1,6 +1,6 @@
-# Hamman Muraya's Portfolio
+# Victor Njoroge's Portfolio
 
-This is the personal portfolio website for Hamman Muraya, Senior Software Engineer & AI Specialist.
+This is the personal portfolio website for Victor Njoroge, Senior Software Engineer & AI Specialist.
 
 ## Project Structure
 

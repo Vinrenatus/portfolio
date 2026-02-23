@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Github, Linkedin, Mail, Download, Code, Cpu, Database, Sun, Moon, User, LogOut, Sparkles, Zap, Star, ArrowRight, Play } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, Code, Cpu, Database, Sun, Moon, User, LogOut, Sparkles, Zap, Star, ArrowRight } from 'lucide-react';
 import SocialLink from '../ui/SocialLink';
 import { useTheme } from '../../context/ThemeContext';
 import { useAuth } from '../../context/AuthContext';
@@ -45,7 +45,7 @@ const Hero = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Typewriter effect texts - motivating and client-focused
+  // Typewriter effect texts
   const typewriterTexts = [
     "Your vision deserves exceptional execution. 🚀",
     "Let's build something remarkable together. 💡",
@@ -62,7 +62,7 @@ const Hero = () => {
 
   useEffect(() => {
     const currentFullText = typewriterTexts[currentTextIndex];
-    
+
     const timer = setTimeout(() => {
       if (!isDeleting) {
         if (displayedText.length < currentFullText.length) {
@@ -157,21 +157,33 @@ const Hero = () => {
         onLogin={login}
       />
 
-      <section 
+      <section
         ref={containerRef}
-        className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-emerald-950 to-black"
+        className={`relative min-h-screen flex items-center justify-center overflow-hidden transition-colors duration-500 ${
+          theme === 'light' 
+            ? 'bg-gradient-to-br from-gray-50 via-blue-50 to-emerald-50' 
+            : 'bg-gradient-to-br from-gray-900 via-emerald-950 to-black'
+        }`}
       >
         {/* Animated Grid Background */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
-        
+        <div className={`absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.03)_1px,transparent_1px)] bg-[size:50px_50px] ${
+          theme === 'light' ? 'opacity-50' : 'opacity-100'
+        }`} />
+
         {/* Radial Gradient Overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.1),transparent_70%)]" />
+        <div className={`absolute inset-0 ${
+          theme === 'light' 
+            ? 'bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.05),transparent_70%)]' 
+            : 'bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.1),transparent_70%)]'
+        }`} />
 
         {/* Floating Particles */}
         {particles.map((particle) => (
           <motion.div
             key={particle.id}
-            className="absolute rounded-full bg-emerald-500/20"
+            className={`absolute rounded-full ${
+              theme === 'light' ? 'bg-emerald-400/30' : 'bg-emerald-500/20'
+            }`}
             style={{
               left: `${particle.x}%`,
               top: `${particle.y}%`,
@@ -196,7 +208,9 @@ const Hero = () => {
         {codeSnippets.map((snippet, index) => (
           <motion.div
             key={index}
-            className="absolute hidden lg:block text-emerald-500/10 font-mono text-sm"
+            className={`absolute hidden lg:block font-mono text-sm ${
+              theme === 'light' ? 'text-emerald-600/15' : 'text-emerald-500/10'
+            }`}
             style={{ left: snippet.x, top: snippet.y }}
             animate={{
               y: [0, -30, 0],
@@ -215,8 +229,10 @@ const Hero = () => {
         ))}
 
         {/* Animated Gradient Orbs */}
-        <motion.div 
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/20 rounded-full mix-blend-screen filter blur-3xl opacity-30"
+        <motion.div
+          className={`absolute top-1/4 left-1/4 w-96 h-96 rounded-full mix-blend-screen filter blur-3xl opacity-30 ${
+            theme === 'light' ? 'bg-emerald-300/30' : 'bg-emerald-500/20'
+          }`}
           animate={{
             scale: [1, 1.2, 1],
             x: [0, 100, 0],
@@ -224,8 +240,10 @@ const Hero = () => {
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
         />
-        <motion.div 
-          className="absolute top-1/3 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full mix-blend-screen filter blur-3xl opacity-30"
+        <motion.div
+          className={`absolute top-1/3 right-1/4 w-96 h-96 rounded-full mix-blend-screen filter blur-3xl opacity-30 ${
+            theme === 'light' ? 'bg-cyan-300/30' : 'bg-cyan-500/20'
+          }`}
           animate={{
             scale: [1, 1.3, 1],
             x: [0, -100, 0],
@@ -233,8 +251,10 @@ const Hero = () => {
           }}
           transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
         />
-        <motion.div 
-          className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-purple-500/20 rounded-full mix-blend-screen filter blur-3xl opacity-30"
+        <motion.div
+          className={`absolute bottom-1/4 left-1/3 w-96 h-96 rounded-full mix-blend-screen filter blur-3xl opacity-30 ${
+            theme === 'light' ? 'bg-purple-300/30' : 'bg-purple-500/20'
+          }`}
           animate={{
             scale: [1, 1.1, 1],
             x: [0, 80, 0],
@@ -247,17 +267,26 @@ const Hero = () => {
         <motion.div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: `radial-gradient(600px circle at ${50 + mouseX.get() * 50}% ${50 + mouseY.get() * 50}%, rgba(16, 185, 129, 0.1), transparent 40%)`,
+            background: `radial-gradient(600px circle at ${50 + mouseX.get() * 50}% ${50 + mouseY.get() * 50}%, ${
+              theme === 'light' 
+                ? 'rgba(16, 185, 129, 0.08)' 
+                : 'rgba(16, 185, 129, 0.1)'
+            }, transparent 40%)`,
           }}
         />
 
         {/* Control Buttons - Top Right */}
         <div className="absolute top-4 right-4 z-50 flex gap-2">
+          {/* Theme Toggle Button */}
           <motion.button
             onClick={toggleTheme}
             whileHover={{ scale: 1.1, rotate: 15 }}
             whileTap={{ scale: 0.9 }}
-            className="p-3 rounded-full bg-white/10 backdrop-blur-sm border border-emerald-500/20 hover:border-emerald-500/50 transition-all duration-300 text-emerald-400 hover:text-emerald-300 cursor-pointer shadow-lg hover:shadow-emerald-500/25"
+            className={`p-3 rounded-full backdrop-blur-sm border transition-all duration-300 shadow-lg cursor-pointer ${
+              theme === 'light'
+                ? 'bg-amber-100/80 border-amber-300 hover:border-amber-400 text-amber-600 hover:text-amber-700 hover:shadow-amber-500/25'
+                : 'bg-white/10 border-emerald-500/20 hover:border-emerald-500/50 text-emerald-400 hover:text-emerald-300 hover:shadow-emerald-500/25'
+            }`}
             aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
           >
             {theme === 'light' ? (
@@ -269,14 +298,22 @@ const Hero = () => {
 
           {currentUser ? (
             <div className="flex items-center gap-2">
-              <span className="text-sm text-emerald-400 bg-emerald-500/10 px-3 py-2 rounded-full border border-emerald-500/20 hidden sm:block">
+              <span className={`text-sm px-3 py-2 rounded-full border hidden sm:block ${
+                theme === 'light'
+                  ? 'bg-emerald-100/50 border-emerald-300 text-emerald-700'
+                  : 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400'
+              }`}>
                 {isAdmin ? 'Admin' : 'User'}: {currentUser.name}
               </span>
               <motion.button
                 onClick={logout}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="p-3 rounded-full bg-white/10 backdrop-blur-sm border border-red-500/20 hover:border-red-500/50 transition-all duration-300 text-red-400 hover:text-red-300 cursor-pointer shadow-lg hover:shadow-red-500/25"
+                className={`p-3 rounded-full backdrop-blur-sm border transition-all duration-300 shadow-lg cursor-pointer ${
+                  theme === 'light'
+                    ? 'bg-red-100/80 border-red-300 hover:border-red-400 text-red-600 hover:text-red-700 hover:shadow-red-500/25'
+                    : 'bg-white/10 border-red-500/20 hover:border-red-500/50 text-red-400 hover:text-red-300 hover:shadow-red-500/25'
+                }`}
                 aria-label="Logout"
               >
                 <LogOut className="w-6 h-6" />
@@ -287,7 +324,11 @@ const Hero = () => {
               onClick={() => setShowLoginModal(true)}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="p-3 rounded-full bg-white/10 backdrop-blur-sm border border-emerald-500/20 hover:border-emerald-500/50 transition-all duration-300 text-emerald-400 hover:text-emerald-300 cursor-pointer shadow-lg hover:shadow-emerald-500/25"
+              className={`p-3 rounded-full backdrop-blur-sm border transition-all duration-300 shadow-lg cursor-pointer ${
+                theme === 'light'
+                  ? 'bg-emerald-100/80 border-emerald-300 hover:border-emerald-400 text-emerald-600 hover:text-emerald-700 hover:shadow-emerald-500/25'
+                  : 'bg-white/10 border-emerald-500/20 hover:border-emerald-500/50 text-emerald-400 hover:text-emerald-300 hover:shadow-emerald-500/25'
+              }`}
               aria-label="Login"
             >
               <User className="w-6 h-6" />
@@ -310,7 +351,11 @@ const Hero = () => {
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="inline-block mb-4 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full relative overflow-hidden group cursor-pointer"
+                className={`inline-block mb-4 px-4 py-2 border rounded-full relative overflow-hidden group cursor-pointer ${
+                  theme === 'light'
+                    ? 'bg-emerald-100/50 border-emerald-300'
+                    : 'bg-emerald-500/10 border-emerald-500/20'
+                }`}
                 whileHover={{ scale: 1.05 }}
               >
                 <motion.div
@@ -318,7 +363,9 @@ const Hero = () => {
                   animate={{ x: ['-100%', '100%'] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                 />
-                <span className="relative z-10 text-emerald-400 text-sm font-medium flex items-center gap-2">
+                <span className={`relative z-10 text-sm font-medium flex items-center gap-2 ${
+                  theme === 'light' ? 'text-emerald-700' : 'text-emerald-400'
+                }`}>
                   <motion.span
                     animate={{ scale: [1, 1.2, 1] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
@@ -331,8 +378,10 @@ const Hero = () => {
               </motion.div>
 
               {/* Name with Gradient and Glow */}
-              <motion.h1 
-                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 leading-tight"
+              <motion.h1
+                className={`text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 leading-tight ${
+                  theme === 'light' ? 'text-gray-900' : 'text-white'
+                }`}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -351,8 +400,10 @@ const Hero = () => {
               </motion.h1>
 
               {/* Title with Typing Animation Effect */}
-              <motion.h2 
-                className="text-2xl sm:text-3xl lg:text-4xl font-bold text-emerald-400 mb-6"
+              <motion.h2
+                className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 ${
+                  theme === 'light' ? 'text-emerald-600' : 'text-emerald-400'
+                }`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -364,14 +415,16 @@ const Hero = () => {
               </motion.h2>
 
               {/* Description with Highlight */}
-              <motion.p 
-                className="text-lg text-gray-300 max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed"
+              <motion.p
+                className={`text-lg max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed ${
+                  theme === 'light' ? 'text-gray-600' : 'text-gray-300'
+                }`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
                 Transforming ideas into{' '}
-                <span className="text-emerald-400 font-semibold relative">
+                <span className={`${theme === 'light' ? 'text-emerald-600' : 'text-emerald-400'} font-semibold relative`}>
                   innovative solutions
                   <motion.span
                     className="absolute -bottom-1 left-0 right-0 h-0.5 bg-emerald-500/50"
@@ -383,6 +436,87 @@ const Hero = () => {
                 through cutting-edge technology, AI expertise, and strategic thinking.
               </motion.p>
 
+              {/* Follow Hamman Social Icons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+                className={`mb-6 p-4 rounded-2xl border-2 inline-block ${
+                  theme === 'light'
+                    ? 'bg-white/80 border-emerald-300 shadow-lg shadow-emerald-500/10'
+                    : 'bg-white/5 border-emerald-500/30 shadow-lg shadow-emerald-500/20'
+                }`}
+              >
+                <p className={`text-sm font-bold mb-3 text-center ${
+                  theme === 'light' ? 'text-gray-700' : 'text-gray-300'
+                }`}>
+                  🔔 Follow Hamman
+                </p>
+                <div className="flex gap-3">
+                  {/* GitHub */}
+                  <motion.a
+                    href={PERSONAL_INFO.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.2, y: -5 }}
+                    whileTap={{ scale: 0.9 }}
+                    className={`relative group p-3 rounded-xl transition-all duration-300 ${
+                      theme === 'light'
+                        ? 'bg-gray-900 text-white hover:bg-gray-800'
+                        : 'bg-gray-800 text-white hover:bg-gray-700'
+                    } shadow-lg hover:shadow-xl`}
+                    title="Follow on GitHub"
+                  >
+                    <Github className="w-6 h-6" />
+                    <motion.span
+                      initial={{ opacity: 0, y: 10 }}
+                      whileHover={{ opacity: 1, y: -35 }}
+                      className="absolute left-1/2 -translate-x-1/2 px-3 py-1.5 bg-gray-900 text-white text-xs font-bold rounded-lg whitespace-nowrap pointer-events-none"
+                    >
+                      GitHub 👨‍💻
+                    </motion.span>
+                  </motion.a>
+                  
+                  {/* LinkedIn */}
+                  <motion.a
+                    href={PERSONAL_INFO.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.2, y: -5 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="relative group p-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:from-blue-700 hover:to-blue-800"
+                    title="Connect on LinkedIn"
+                  >
+                    <Linkedin className="w-6 h-6" />
+                    <motion.span
+                      initial={{ opacity: 0, y: 10 }}
+                      whileHover={{ opacity: 1, y: -35 }}
+                      className="absolute left-1/2 -translate-x-1/2 px-3 py-1.5 bg-gray-900 text-white text-xs font-bold rounded-lg whitespace-nowrap pointer-events-none"
+                    >
+                      LinkedIn 💼
+                    </motion.span>
+                  </motion.a>
+                  
+                  {/* Email */}
+                  <motion.a
+                    href={`mailto:${PERSONAL_INFO.email}`}
+                    whileHover={{ scale: 1.2, y: -5 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="relative group p-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:from-emerald-600 hover:to-cyan-600"
+                    title="Send Email"
+                  >
+                    <Mail className="w-6 h-6" />
+                    <motion.span
+                      initial={{ opacity: 0, y: 10 }}
+                      whileHover={{ opacity: 1, y: -35 }}
+                      className="absolute left-1/2 -translate-x-1/2 px-3 py-1.5 bg-gray-900 text-white text-xs font-bold rounded-lg whitespace-nowrap pointer-events-none"
+                    >
+                      Email ✉️
+                    </motion.span>
+                  </motion.a>
+                </div>
+              </motion.div>
+
               {/* CTA Buttons with Advanced Effects */}
               <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
                 {/* Social Links */}
@@ -393,12 +527,18 @@ const Hero = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1, y: -5 }}
                     whileTap={{ scale: 0.95 }}
-                    className="p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-gray-500/20 hover:border-gray-400/50 transition-all duration-300 group relative overflow-hidden"
+                    className={`p-4 backdrop-blur-sm rounded-xl border transition-all duration-300 group relative overflow-hidden ${
+                      theme === 'light'
+                        ? 'bg-gray-100/80 border-gray-300 hover:border-gray-400'
+                        : 'bg-white/10 border-gray-500/20 hover:border-gray-400/50'
+                    }`}
                   >
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-br from-gray-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
                     />
-                    <Github className="w-6 h-6 text-gray-300 group-hover:text-white transition-colors relative z-10" />
+                    <Github className={`w-6 h-6 transition-colors relative z-10 ${
+                      theme === 'light' ? 'text-gray-600 group-hover:text-gray-800' : 'text-gray-300 group-hover:text-white'
+                    }`} />
                   </motion.a>
                   <motion.a
                     href={PERSONAL_INFO.linkedin}
@@ -406,12 +546,18 @@ const Hero = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1, y: -5 }}
                     whileTap={{ scale: 0.95 }}
-                    className="p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-blue-500/20 hover:border-blue-400/50 transition-all duration-300 group relative overflow-hidden"
+                    className={`p-4 backdrop-blur-sm rounded-xl border transition-all duration-300 group relative overflow-hidden ${
+                      theme === 'light'
+                        ? 'bg-blue-100/80 border-blue-300 hover:border-blue-400'
+                        : 'bg-white/10 border-blue-500/20 hover:border-blue-400/50'
+                    }`}
                   >
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
                     />
-                    <Linkedin className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors relative z-10" />
+                    <Linkedin className={`w-6 h-6 transition-colors relative z-10 ${
+                      theme === 'light' ? 'text-blue-600 group-hover:text-blue-800' : 'text-blue-400 group-hover:text-blue-300'
+                    }`} />
                   </motion.a>
                 </div>
 
@@ -421,7 +567,11 @@ const Hero = () => {
                   download
                   whileHover={{ scale: 1.05, y: -5 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group px-8 py-4 bg-white/10 backdrop-blur-sm text-emerald-400 font-medium rounded-xl shadow-lg hover:shadow-xl border border-emerald-500/20 transition-all duration-300 flex items-center justify-center gap-2 relative overflow-hidden"
+                  className={`group px-8 py-4 backdrop-blur-sm font-medium rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center gap-2 relative overflow-hidden ${
+                    theme === 'light'
+                      ? 'bg-emerald-100/80 text-emerald-700 border border-emerald-300 hover:border-emerald-400 hover:shadow-emerald-500/25'
+                      : 'bg-white/10 text-emerald-400 border border-emerald-500/20 hover:shadow-xl'
+                  }`}
                 >
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10"
@@ -469,22 +619,26 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1 }}
-                className="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start text-sm text-gray-400"
+                className={`mt-8 flex flex-wrap gap-4 justify-center lg:justify-start text-sm ${
+                  theme === 'light' ? 'text-gray-600' : 'text-gray-400'
+                }`}
               >
-                <motion.a 
+                <motion.a
                   href={`mailto:${PERSONAL_INFO.email}`}
-                  whileHover={{ scale: 1.05, color: '#34d399' }}
-                  className="flex items-center gap-2 hover:text-emerald-400 transition-colors"
+                  whileHover={{ scale: 1.05, color: theme === 'light' ? '#059669' : '#34d399' }}
+                  className={`flex items-center gap-2 transition-colors ${
+                    theme === 'light' ? 'hover:text-emerald-600' : 'hover:text-emerald-400'
+                  }`}
                 >
                   <Mail className="w-4 h-4" />
                   {PERSONAL_INFO.email}
                 </motion.a>
                 <span className="hidden sm:inline">•</span>
-                <motion.span 
+                <motion.span
                   whileHover={{ scale: 1.05 }}
                   className="flex items-center gap-2"
                 >
-                  <Star className="w-4 h-4 text-yellow-500" />
+                  <Star className={`w-4 h-4 ${theme === 'light' ? 'text-yellow-600' : 'text-yellow-500'}`} />
                   Top Rated Developer
                 </motion.span>
               </motion.div>
@@ -498,20 +652,24 @@ const Hero = () => {
             >
               {/* Decorative Ring */}
               <motion.div
-                className="absolute inset-0 rounded-full border border-emerald-500/10"
+                className={`absolute inset-0 rounded-full border ${
+                  theme === 'light' ? 'border-emerald-300/30' : 'border-emerald-500/10'
+                }`}
                 animate={{ rotate: 360 }}
                 transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                 style={{ width: 400, height: 400, left: '50%', top: '50%', marginLeft: -200, marginTop: -200 }}
               />
               <motion.div
-                className="absolute inset-0 rounded-full border border-cyan-500/10"
+                className={`absolute inset-0 rounded-full border ${
+                  theme === 'light' ? 'border-cyan-300/30' : 'border-cyan-500/10'
+                }`}
                 animate={{ rotate: -360 }}
                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
                 style={{ width: 350, height: 350, left: '50%', top: '50%', marginLeft: -175, marginTop: -175 }}
               />
-              
+
               <PyramidAnimation />
-              
+
               {/* Typewriter Effect */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -519,7 +677,11 @@ const Hero = () => {
                 transition={{ delay: 0.5 }}
                 className="mt-4 max-w-md mx-auto w-full"
               >
-                <div className="relative bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 backdrop-blur-sm rounded-xl border border-emerald-500/30 px-6 py-4 shadow-lg shadow-emerald-500/10">
+                <div className={`relative backdrop-blur-sm rounded-xl px-6 py-4 shadow-lg ${
+                  theme === 'light'
+                    ? 'bg-emerald-50/80 border border-emerald-200 shadow-emerald-500/10'
+                    : 'bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 border border-emerald-500/30 shadow-emerald-500/10'
+                }`}>
                   <div className="flex items-center gap-3">
                     <motion.span
                       animate={{ scale: [1, 1.2, 1], rotate: [0, 10, -10, 0] }}
@@ -529,21 +691,33 @@ const Hero = () => {
                       💬
                     </motion.span>
                     <div className="flex-1">
-                      <p className="text-emerald-300 font-medium text-sm md:text-base min-h-[1.5rem]">
+                      <p className={`font-medium text-sm md:text-base min-h-[1.5rem] ${
+                        theme === 'light' ? 'text-emerald-700' : 'text-emerald-300'
+                      }`}>
                         {displayedText}
                         <motion.span
                           animate={{ opacity: [1, 0, 1] }}
                           transition={{ duration: 0.8, repeat: Infinity }}
-                          className="inline-block w-0.5 h-5 ml-1 bg-emerald-400 align-middle"
+                          className={`inline-block w-0.5 h-5 ml-1 align-middle ${
+                            theme === 'light' ? 'bg-emerald-600' : 'bg-emerald-400'
+                          }`}
                         />
                       </p>
                     </div>
                   </div>
                   {/* Decorative corners */}
-                  <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-emerald-500/50 rounded-tl-lg" />
-                  <div className="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-emerald-500/50 rounded-tr-lg" />
-                  <div className="absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-emerald-500/50 rounded-bl-lg" />
-                  <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-emerald-500/50 rounded-br-lg" />
+                  <div className={`absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 rounded-tl-lg ${
+                    theme === 'light' ? 'border-emerald-400' : 'border-emerald-500/50'
+                  }`} />
+                  <div className={`absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 rounded-tr-lg ${
+                    theme === 'light' ? 'border-emerald-400' : 'border-emerald-500/50'
+                  }`} />
+                  <div className={`absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 rounded-bl-lg ${
+                    theme === 'light' ? 'border-emerald-400' : 'border-emerald-500/50'
+                  }`} />
+                  <div className={`absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 rounded-br-lg ${
+                    theme === 'light' ? 'border-emerald-400' : 'border-emerald-500/50'
+                  }`} />
                 </div>
               </motion.div>
             </motion.div>
@@ -557,70 +731,52 @@ const Hero = () => {
           >
             <div className="relative">
               {/* Background Glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 via-cyan-500/5 to-emerald-500/5 rounded-3xl blur-3xl" />
-              
-              <div className="relative grid grid-cols-2 md:grid-cols-4 gap-6 p-8 bg-white/5 backdrop-blur-xl rounded-3xl border border-emerald-500/10">
+              <div className={`absolute inset-0 rounded-3xl blur-3xl ${
+                theme === 'light' 
+                  ? 'bg-gradient-to-r from-emerald-200/30 via-cyan-200/30 to-emerald-200/30' 
+                  : 'bg-gradient-to-r from-emerald-500/5 via-cyan-500/5 to-emerald-500/5'
+              }`} />
+
+              <div className={`relative grid grid-cols-2 md:grid-cols-4 gap-6 p-8 rounded-3xl border ${
+                theme === 'light'
+                  ? 'bg-white/70 backdrop-blur-xl border-emerald-200'
+                  : 'bg-white/5 backdrop-blur-xl border-emerald-500/10'
+              }`}>
                 {[
                   { number: '5+', label: 'Years Experience', icon: '🎯', color: 'from-emerald-400 to-cyan-400' },
                   { number: '50+', label: 'Projects Completed', icon: '🚀', color: 'from-cyan-400 to-blue-400' },
                   { number: '15+', label: 'Happy Clients', icon: '😊', color: 'from-purple-400 to-pink-400' },
-                  { number: '10+', label: 'AI Models Trained', icon: '🤖', color: 'from-orange-400 to-red-400' }
+                  { number: '10+', label: 'AI Models Trained', icon: '🤖', color: 'from-orange-400 to-red-400' },
                 ].map((stat, index) => (
                   <motion.div
                     key={index}
+                    className="text-center"
                     initial={{ opacity: 0, y: 20 }}
                     animate={statsVisible ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: index * 0.1 }}
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    className="text-center p-6 rounded-2xl bg-white/5 border border-emerald-500/10 hover:border-emerald-500/30 transition-all duration-300 group"
                   >
-                    <motion.div 
-                      className="text-4xl mb-3"
-                      whileHover={{ scale: 1.2, rotate: 10 }}
+                    <motion.div
+                      className={`text-4xl mb-2 bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{ duration: 2, delay: index * 0.1, repeat: Infinity }}
                     >
                       {stat.icon}
                     </motion.div>
-                    <motion.div 
-                      className={`text-3xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2`}
+                    <motion.div
+                      className={`text-3xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}
+                      initial={{ opacity: 0 }}
+                      animate={statsVisible ? { opacity: 1 } : {}}
+                      transition={{ delay: index * 0.1 + 0.3 }}
                     >
                       {stat.number}
                     </motion.div>
-                    <div className="text-gray-400 text-sm">{stat.label}</div>
-                    <motion.div
-                      className="mt-3 h-1 bg-gradient-to-r from-emerald-500/0 via-emerald-500/50 to-emerald-500/0 rounded-full"
-                      initial={{ scaleX: 0 }}
-                      animate={statsVisible ? { scaleX: 1 } : {}}
-                      transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
-                    />
+                    <div className={`text-sm mt-1 ${
+                      theme === 'light' ? 'text-gray-600' : 'text-gray-400'
+                    }`}>{stat.label}</div>
                   </motion.div>
                 ))}
               </div>
             </div>
-          </motion.div>
-
-          {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5 }}
-            className="mt-16 flex justify-center"
-          >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="flex flex-col items-center gap-2 text-gray-500"
-            >
-              <span className="text-xs uppercase tracking-widest">Scroll to explore</span>
-              <motion.div
-                className="w-6 h-10 border-2 border-emerald-500/30 rounded-full flex justify-center p-1"
-              >
-                <motion.div
-                  className="w-1.5 h-3 bg-emerald-500 rounded-full"
-                  animate={{ y: [0, 12, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                />
-              </motion.div>
-            </motion.div>
           </motion.div>
         </motion.div>
       </section>

@@ -28,8 +28,8 @@ const Testimonials = () => {
 
   // Auto-slide effect
   useEffect(() => {
-    if (isPaused) return;
-    
+    if (isPaused || testimonials.length === 0) return;
+
     const interval = setInterval(() => {
       setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
@@ -191,7 +191,7 @@ const Testimonials = () => {
             >
               <ChevronLeft size={24} />
             </button>
-            
+
             <button
               onClick={handleNext}
               onMouseEnter={() => setIsPaused(true)}
@@ -223,11 +223,11 @@ const Testimonials = () => {
                 >
                   <div className="w-full max-w-2xl">
                     <Testimonial
-                      name={testimonials[currentIndex].name}
-                      role={testimonials[currentIndex].role}
-                      content={testimonials[currentIndex].content}
-                      rating={testimonials[currentIndex].rating}
-                      onDelete={isAdmin ? () => deleteTestimonial(testimonials[currentIndex].id) : undefined}
+                      name={testimonials[currentIndex]?.name || ''}
+                      role={testimonials[currentIndex]?.role || ''}
+                      content={testimonials[currentIndex]?.content || ''}
+                      rating={testimonials[currentIndex]?.rating || 5}
+                      onDelete={isAdmin && testimonials[currentIndex] ? () => deleteTestimonial(testimonials[currentIndex].id) : undefined}
                     />
                   </div>
                 </motion.div>

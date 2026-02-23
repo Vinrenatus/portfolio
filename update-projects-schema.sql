@@ -18,10 +18,10 @@ ADD COLUMN IF NOT EXISTS link TEXT;
 -- ============================================
 
 -- Update Project 1: Portfolio Website
-UPDATE projects 
-SET 
+UPDATE projects
+SET
   image = 'https://images.pexels.com/photos/1181271/pexels-photo-1181271.jpeg',
-  link = 'https://hamanmuraya1.netlify.app/',
+  link = 'https://victornjoroge1.netlify.app/',
   title = 'Portfolio Website',
   type = 'Web Development',
   description = 'A professional personal portfolio website showcasing my work and achievements as a Senior Software Engineer & AI Specialist. Built with modern technologies including React, Vite, and Tailwind CSS, featuring smooth animations with Framer Motion, responsive design for all devices, and a stunning animated pyramid visualization. The site includes project showcases, skills breakdown, experience timeline, and contact functionality.',
@@ -87,8 +87,8 @@ WHERE id = 5;
 -- ============================================
 
 -- Insert/Update Portfolio Website
-INSERT INTO projects (id, title, type, description, tags, year, category, image, link) 
-VALUES (1, 'Portfolio Website', 'Web Development', 'A professional personal portfolio website showcasing my work and achievements as a Senior Software Engineer & AI Specialist. Built with React, Vite, Tailwind CSS, and Framer Motion with responsive design and animated pyramid visualization.', ARRAY['React', 'Vite', 'Tailwind CSS', 'Framer Motion'], '2024', 'Web Development', 'https://images.pexels.com/photos/1181271/pexels-photo-1181271.jpeg', 'https://hamanmuraya1.netlify.app/')
+INSERT INTO projects (id, title, type, description, tags, year, category, image, link)
+VALUES (1, 'Portfolio Website', 'Web Development', 'A professional personal portfolio website showcasing my work and achievements as a Senior Software Engineer & AI Specialist. Built with React, Vite, Tailwind CSS, and Framer Motion with responsive design and animated pyramid visualization.', ARRAY['React', 'Vite', 'Tailwind CSS', 'Framer Motion'], '2024', 'Web Development', 'https://images.pexels.com/photos/1181271/pexels-photo-1181271.jpeg', 'https://victornjoroge1.netlify.app/')
 ON CONFLICT (id) DO UPDATE SET
   image = EXCLUDED.image, link = EXCLUDED.link, title = EXCLUDED.title, type = EXCLUDED.type,
   description = EXCLUDED.description, tags = EXCLUDED.tags, year = EXCLUDED.year, category = EXCLUDED.category;

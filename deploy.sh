@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Quick Deploy Script for Hamman's Portfolio
+# Quick Deploy Script for Victor's Portfolio
 # Run this to deploy to Netlify
 
 echo "🚀 Deploying to Netlify..."
@@ -13,7 +13,7 @@ npm run build
 
 # Deploy to Netlify
 echo "🌐 Deploying..."
-npx netlify deploy --prod --dir=dist --site=hamanmuraya
+npx netlify deploy --prod --dir=dist --site=victornjoroge
 
 echo "✅ Deploy complete!"
-echo "🌍 Your site is live at: https://hamanmuraya.netlify.app"
+echo "🌍 Your site is live at: https://victornjoroge.netlify.app"

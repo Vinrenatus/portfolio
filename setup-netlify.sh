@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Netlify Quick Setup Script for Hamman Muraya's Portfolio
+# Netlify Quick Setup Script for Victor Njoroge's Portfolio
 # Run this script to quickly set up Netlify deployment
 
-echo "🚀 Netlify Quick Setup for Hamman Muraya's Portfolio"
+echo "🚀 Netlify Quick Setup for Victor Njoroge's Portfolio"
 echo "===================================================="
 echo ""
 

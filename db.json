@@ -2,7 +2,7 @@
   "messages": [],
   "comments": [
     {
-      "name": "Haman Muraya",
+      "name": "Hamman Muraya",
       "content": "I hope you love this portfolio",
       "createdAt": "2026-02-17T07:39:04.370Z",
       "reactions": {
@@ -11,7 +11,7 @@
       "replies": [
         {
           "id": 1771313960174,
-          "name": "Haman Muraya",
+          "name": "Hamman Muraya",
           "content": "I love it",
           "createdAt": "2026-02-17T07:39:20.174Z"
         }
@@ -36,7 +36,7 @@
       "id": 1,
       "title": "Portfolio Website",
       "type": "Web Development",
-      "description": "A professional personal portfolio website showcasing my work and achievements as a Senior Software Engineer & AI Specialist. Built with modern technologies including React, Vite, and Tailwind CSS, featuring smooth animations with Framer Motion, responsive design for all devices, and a stunning animated pyramid visualization. The site includes project showcases, skills breakdown, experience timeline, and contact functionality.",
+      "description": "A professional personal portfolio website showcasing work and achievements as a Senior Software Engineer & AI Specialist. Built with modern technologies including React, Vite, and Tailwind CSS, featuring smooth animations with Framer Motion, responsive design for all devices, and a stunning animated pyramid visualization.",
       "tags": ["React", "Vite", "Tailwind CSS", "Framer Motion"],
       "year": "2024",
       "category": "Web Development",
@@ -45,31 +45,20 @@
     },
     {
       "id": 2,
-      "title": "Ajali - Emergency Incident Reporting",
-      "type": "Full-Stack Application",
-      "description": "A localized platform designed to facilitate swift reporting and response to accidents and emergencies in Kenya. The system allows citizens to report incidents with geolocation data, images, and videos while ensuring the right authorities and public are informed in real-time. Features include user authentication, incident status tracking (under investigation, resolved, etc.), media upload capabilities, Google Maps integration for location display, and an admin dashboard for managing reports. Built with React/Redux on the frontend and Flask/Python with SQLite on the backend, following RESTful API design principles.",
-      "tags": ["React", "Redux Toolkit", "Flask", "Python", "SQLite", "Google Maps API"],
-      "year": "2023",
-      "category": "Full-Stack Development",
-      "link": null,
-      "image": "https://images.pexels.com/photos/12002262/pexels-photo-12002262.jpeg"
+      "title": "Ufugaji-BioID: Livestock Muzzle Print Biometrics",
+      "type": "AI/Computer Vision",
+      "description": "KSEF 2026 award-winning system using AI-powered muzzle print biometrics to combat cattle rustling in Kenya's ASAL regions. Features AI validation using Local Binary Patterns (LBP), CNN-inspired feature vector extraction, and cosine similarity matching. Built with React 19, Vite, and offline-first architecture.",
+      "tags": ["React", "AI", "Computer Vision", "Image Processing", "Biometrics", "Offline-First"],
+      "year": "2026",
+      "category": "AI/ML",
+      "link": "https://aistudio.google.com/apps/drive/10VRTax38bkRyaSyx5KoamV0c-uMy17vo?fullscreenApplet=true&showPreview=true&showAssistant=true",
+      "image": "https://images.pexels.com/photos/591/animal-countryside-agriculture-farm.jpg"
     },
     {
       "id": 3,
-      "title": "Sustainable Maasai Legacy",
-      "type": "E-commerce Platform",
-      "description": "A custom marketplace platform connecting Maasai artisans to global markets, empowering local communities through e-commerce. The platform features secure payment processing integration, comprehensive inventory management, product catalog with search and filtering, user authentication and profiles, order tracking, and international shipping support. Built to preserve and promote traditional Maasai craftsmanship while providing artisans with access to worldwide customers. Includes admin dashboard for managing products, orders, and artisan partnerships.",
-      "tags": ["E-commerce", "Payments", "Inventory Management", "Global Markets"],
-      "year": "2022",
-      "category": "E-commerce",
-      "link": null,
-      "image": "https://images.pexels.com/photos/13033124/pexels-photo-13033124.jpeg"
-    },
-    {
-      "id": 4,
       "title": "Brian & Jones Automotive",
       "type": "Full-Stack Application",
-      "description": "A comprehensive automotive service website for Brian & Jones Automotive featuring a complete customer and admin experience. Customer features include a 3-step service booking wizard, vehicle inventory browsing with filters (by price, mileage, year), customer dashboard for viewing appointment history and service records, and secure user authentication. Admin features include appointment management with status updates (scheduled → in-progress → completed), vehicle inventory CRUD operations, and user management. Services showcased include mechanical work, electrical diagnostics, OBD-II scanning, and complete engine/transmission overhauls with 12-month warranty. Built with React 18, React Router v6, CSS Modules, and a mock REST API.",
+      "description": "A comprehensive automotive service website featuring a complete customer and admin experience. Customer features include a 3-step service booking wizard, vehicle inventory browsing with filters, customer dashboard for viewing appointment history and service records, and secure user authentication.",
       "tags": ["React", "CSS Modules", "React Router", "REST API"],
       "year": "2024",
       "category": "Full-Stack Development",
@@ -77,15 +66,26 @@
       "image": "https://images.pexels.com/photos/4480448/pexels-photo-4480448.jpeg"
     },
     {
+      "id": 4,
+      "title": "Ajali - Emergency Incident Reporting",
+      "type": "Full-Stack Application",
+      "description": "A localized platform designed to facilitate swift reporting and response to accidents and emergencies in Kenya. The system allows citizens to report incidents with geolocation data, images, and videos while ensuring the right authorities and public are informed in real-time.",
+      "tags": ["React", "Redux Toolkit", "Flask", "Python", "SQLite", "Google Maps API"],
+      "year": "2023",
+      "category": "Full-Stack Development",
+      "link": null,
+      "image": "https://images.pexels.com/photos/12002262/pexels-photo-12002262.jpeg"
+    },
+    {
       "id": 5,
-      "title": "Ufugaji-BioID: Livestock Muzzle Print Biometrics",
-      "type": "AI/Computer Vision",
-      "description": "KSEF 2026 award-winning system using AI-powered muzzle print biometrics to combat cattle rustling in Kenya's ASAL regions (Turkana, Pokot, Kajiado). The system features a cutting-edge image processing pipeline with AI validation using Local Binary Patterns (LBP) for texture analysis, bilateral symmetry detection, edge density analysis with Sobel operators, and contrast distribution validation. Implements CNN-inspired 28-dimensional feature vector extraction (grid mean, edge density, texture variance, radial patterns) and cosine similarity matching with confidence-adjusted scoring. The offline-first architecture works 100% without internet on standard Android smartphones. Four MVPs: Muzzle Mapper (camera/upload with AI validation), Offline Enrollment (localStorage database), AI Matcher (identification with confidence scoring), and Digital Title Deed (PDF certificate generation). Built with React 19, Vite, html2canvas, and jsPDF.",
-      "tags": ["React", "AI", "Computer Vision", "Image Processing", "Biometrics", "Offline-First"],
-      "year": "2026",
-      "category": "AI/ML",
-      "link": "https://aistudio.google.com/apps/drive/10VRTax38bkRyaSyx5KoamV0c-uMy17vo?fullscreenApplet=true&showPreview=true&showAssistant=true",
-      "image": "https://images.pexels.com/photos/591/animal-countryside-agriculture-farm.jpg"
+      "title": "Sustainable Maasai Legacy",
+      "type": "E-commerce Platform",
+      "description": "A custom marketplace platform connecting Maasai artisans to global markets, empowering local communities through e-commerce. The platform features secure payment processing integration, comprehensive inventory management, product catalog with search and filtering, user authentication and profiles, order tracking, and international shipping support.",
+      "tags": ["E-commerce", "Payments", "Inventory Management", "Global Markets"],
+      "year": "2022",
+      "category": "E-commerce",
+      "link": null,
+      "image": "https://images.pexels.com/photos/13033124/pexels-photo-13033124.jpeg"
     }
   ],
   "testimonials": [
@@ -113,12 +113,14 @@
   ],
   "about": {
     "id": 1,
-    "summary": "Expert in Reinforcement Learning from Human Feedback (RLHF) and Supervised Fine-Tuning (SFT) for Large Language Models (LLMs). Combines deep technical proficiency in Python, Elixir, and TypeScript with the linguistic precision required for high-quality data annotation. Native Swahili speaker with extensive experience in technical localization and cross-cultural AI model evaluation.",
+    "summary": "Senior Software Engineer and AI Training Specialist with a Ph.D. in Software Engineering and over 8 years of experience building scalable systems and training advanced AI models. Expert in Reinforcement Learning from Human Feedback (RLHF), Supervised Fine-Tuning (SFT), and Expert-Level Data Annotation for Large Language Models (LLMs). Proven track record in technical support, software development, and AI data training across diverse domains including Computer Science, Mathematics, and Responsible AI. Combines deep technical proficiency in Python, Elixir, and TypeScript with the linguistic precision required for high-quality data annotation, chain-of-thought reasoning, and model evaluation.",
     "competencies": [
-      "Technical Leadership and mentoring",
-      "Technical Writing for RLHF and model training",
-      "Cross-Functional Collaboration",
-      "Remote Work Proficiency (5+ years)"
+      "Technical Leadership & Mentorship",
+      "IT Systems Administration & Technical Support",
+      "AI Model Evaluation & Data Analysis",
+      "Process Automation & Cloud Computing",
+      "Web & Software Development",
+      "Cross-Functional Collaboration & Remote Work Proficiency"
     ]
   },
   "skills": [
@@ -127,11 +129,15 @@
       "category": "AI & Data Training",
       "skills": [
         "RLHF",
-        "Supervised Fine-Tuning (SFT)",
+        "SFT",
         "LLM Evaluation",
         "Code Hallucination Detection",
         "Prompt Engineering",
-        "Ground Truth Creation"
+        "Ground Truth Creation",
+        "Chain-of-Thought Reasoning",
+        "Model Stumping",
+        "Responsible AI Guidelines",
+        "HLE Benchmarking"
       ]
     },
     {
@@ -139,97 +145,146 @@
       "category": "Languages & Frameworks",
       "skills": [
         "Python (Django, Flask, SQLAlchemy)",
-        "JavaScript/TypeScript (React.js, Node.js, Redux)",
+        "JavaScript/TypeScript (React, Node, Redux)",
         "Elixir (Phoenix)",
         "SQL",
-        "HTML5/CSS3"
+        "HTML5/CSS3",
+        "Java",
+        "LaTeX"
       ]
     },
     {
       "id": 3,
-      "category": "Engineering Standards",
-      "skills": [
-        "Agile/Scrum Methodologies",
-        "Test-Driven Development (TDD)",
-        "Pair Programming",
-        "Code Reviews",
-        "Git Flow Workflow",
-        "MVC Architecture",
-        "REST API Design"
-      ]
-    },
-    {
-      "id": 4,
       "category": "DevOps & Infrastructure",
       "skills": [
         "AWS (EC2, S3)",
         "Docker",
         "Kubernetes",
-        "CI/CD Pipelines (GitHub Actions)",
         "PostgreSQL",
         "Redis",
-        "Linux/Bash"
+        "Linux/Bash",
+        "Google Cloud",
+        "Azure",
+        "CI/CD Pipelines"
+      ]
+    },
+    {
+      "id": 4,
+      "category": "Tools & Platforms",
+      "skills": [
+        "Snorkel AI Expert Platform",
+        "FT Studio (Telus)",
+        "Anthropic Interface",
+        "Appen",
+        "TELUS International",
+        "OpenAI",
+        "Hugging Face",
+        "Jira",
+        "Slack"
       ]
     }
   ],
   "workHistory": [
     {
       "id": 1,
-      "company": "DATA ANNOTATION / TELUS DIGITAL",
-      "location": "Remote, USA",
-      "role": "Senior AI Trainer & Software Engineer",
-      "period": "Jul 2023 – January 2026",
+      "company": "Snorkel AI",
+      "location": "Remote",
+      "role": "Expert Contributor (Gauss HLE Project)",
+      "period": "Oct 2025 – Feb 2026",
       "responsibilities": [
-        "Lead Code Evaluator: Conduct rigorous technical reviews of AI-generated code snippets in Python and TypeScript, identifying logic errors, security vulnerabilities, and inefficiencies.",
-        "RLHF Strategy: Rank model responses and author 'Gold Standard' rewrites to train models on best practices, code readability, and modular design.",
-        "Model Optimization: Design complex, adversarial prompts to test model reasoning capabilities in edge cases (e.g., race conditions, memory leaks).",
-        "Technical Documentation: Provide detailed, pedagogical rationales for every evaluation, teaching the model why specific solutions were superior."
+        "Created expert-level question-answer pairs for the Humanity's Last Exam (HLE) benchmark in Computer Science and Engineering domains.",
+        "Developed complex, multi-step reasoning problems that test AI models on deep understanding and precise thinking at a graduate level or higher.",
+        "Provided detailed solutions and explanations adhering to strict formatting rules (LaTeX, Markdown) and domain-specific standards.",
+        "Participated in peer review processes to ensure submission quality and adherence to project guidelines, defending submissions during adjudication when necessary.",
+        "Ensured all content was original, non-routine, and self-contained without reliance on external tools or public archives."
       ]
     },
     {
       "id": 2,
-      "company": "STANDARD CHARTERED BANK",
-      "location": "UK (Remote)",
-      "role": "Senior Backend Engineer",
-      "period": "Dec 2022 – Jun 2023",
+      "company": "Alignerr",
+      "location": "Remote",
+      "role": "AI Trainer & Model Evaluator (Code Human Preference & Sigma Projects)",
+      "period": "Aug 2025 – Feb 2026",
       "responsibilities": [
-        "Regulated Systems: Built secure, high-performance backend services for a global banking platform using Elixir and Python.",
-        "API Architecture: Designed versioned, backwards-compatible APIs consumed by millions of users, focusing on data consistency and latency reduction.",
-        "Observability: Implemented advanced logging and monitoring to diagnose system bottlenecks in a distributed architecture."
+        "Code Human Preference: Selected git repositories and iterated with AI models to produce production-ready code. Conducted rigorous technical reviews of AI-generated code snippets in Python and TypeScript, identifying logic errors and security vulnerabilities.",
+        "Sigma Math Project: Created unique, original, and complex mathematical reasoning questions designed to stump AI models across subdomains like Graph Theory, Number Theory, and Calculus.",
+        "Wrote detailed Chain-of-Thought explanations demonstrating step-by-step logical processes for complex problems, ensuring accuracy and factual correctness.",
+        "Evaluated model responses against quality rubrics focusing on logic, correctness, naming, modularity, and error handling.",
+        "Ensured all mathematical expressions were formatted correctly using LaTeX within Markdown editors."
       ]
     },
     {
       "id": 3,
-      "company": "POWER FINANCIAL WELLNESS",
-      "location": "Nairobi, Kenya",
-      "role": "Senior Backend Engineer (FinTech)",
-      "period": "Jul 2021 – Nov 2022",
+      "company": "Telus International",
+      "location": "Remote",
+      "role": "Senior AI Trainer & Responsible AI Maker (Armadillo & Knowledge Projects)",
+      "period": "Jun 2025 – Jan 2026",
       "responsibilities": [
-        "Scalable Architecture: Led the backend engineering for a high-traffic fintech platform serving thousands of users across East Africa.",
-        "Security Integration: Built secure integrations with third-party payment gateways and mobile money providers.",
-        "Product Strategy: Translated complex financial product requirements into reliable, bug-free code, aligning technical decisions with business goals."
+        "Project Armadillo: Graded and rewrote AI responses for affective conversations, ensuring adherence to responsible AI requirements (deflection, disclaimers, limited engagement).",
+        "Evaluated AI outputs on engagement, emotional support, and overall quality using a 1-5 scale within FT Studio.",
+        "Knowledge Project: Contributed expert-level submissions in Computer Science and Mathematics domains, adhering to strict rate schedules and billing cycles.",
+        "Data Annotation: Conducted AI data labeling, model evaluation, and prompt optimization for conversational AI models.",
+        "Improved model performance by 20% through QA checks, metadata structuring, and supervised learning pipeline support.",
+        "Ensured compliance with data privacy, AI ethics standards, and specific project guidelines regarding mental health and crisis deflection."
       ]
     },
     {
       "id": 4,
-      "company": "ALSOUG.COM",
-      "location": "Khartoum, Sudan",
-      "role": "Senior Backend Engineer",
-      "period": "Apr 2020 – Jun 2021",
+      "company": "Telus Digital",
+      "location": "Remote, USA",
+      "role": "Senior AI Trainer & Software Engineer",
+      "period": "Jul 2023 – May 2025",
       "responsibilities": [
-        "System Modernization: Led the migration from a monolithic legacy system to a modern service-oriented architecture, improving system uptime.",
-        "CI/CD Implementation: Established automated testing pipelines to ensure code quality during rapid release cycles."
+        "Lead Code Evaluator: Conducted rigorous technical reviews of AI-generated code snippets in Python and TypeScript, identifying logic errors, security vulnerabilities, and inefficiencies.",
+        "RLHF Strategy: Ranked model responses and authored \"Gold Standard\" rewrites to train models on best practices, code readability, and modular design.",
+        "Model Optimization: Designed complex, adversarial prompts to test model reasoning capabilities in edge cases (e.g., race conditions, memory leaks).",
+        "Technical Documentation: Provided detailed, pedagogical rationales for every evaluation, teaching the model why specific solutions were superior."
       ]
     },
     {
       "id": 5,
-      "company": "GLADYS TECHNOLOGIES",
+      "company": "Standard Chartered Bank",
+      "location": "UK (Remote)",
+      "role": "Senior Backend Engineer (Contract)",
+      "period": "Dec 2022 – Jun 2023",
+      "responsibilities": [
+        "Built secure, high-performance backend services for a global banking platform using Elixir and Python.",
+        "Designed versioned, backwards-compatible APIs consumed by millions of users, focusing on data consistency and latency reduction.",
+        "Implemented advanced logging and monitoring to diagnose system bottlenecks in a distributed architecture."
+      ]
+    },
+    {
+      "id": 6,
+      "company": "Power Financial Wellness",
+      "location": "Nairobi, Kenya",
+      "role": "Senior Backend Engineer (FinTech)",
+      "period": "Jul 2021 – Nov 2022",
+      "responsibilities": [
+        "Led the backend engineering for a high-traffic fintech platform serving thousands of users across East Africa.",
+        "Built secure integrations with third-party payment gateways and mobile money providers.",
+        "Translated complex financial product requirements into reliable, bug-free code, aligning technical decisions with business goals."
+      ]
+    },
+    {
+      "id": 7,
+      "company": "Alsoug.com",
+      "location": "Khartoum, Sudan",
+      "role": "Senior Backend Engineer",
+      "period": "Apr 2020 – Jun 2021",
+      "responsibilities": [
+        "Led the migration from a monolithic legacy system to a modern service-oriented architecture, improving system uptime.",
+        "Established automated testing pipelines to ensure code quality during rapid release cycles."
+      ]
+    },
+    {
+      "id": 8,
+      "company": "Gladys Technologies",
       "location": "Nairobi, Kenya",
       "role": "Software Engineer",
       "period": "Apr 2017 – Mar 2020",
       "responsibilities": [
-        "API Development: Developed core REST and GraphQL APIs using Elixir and Phoenix that formed the backbone of multiple client applications.",
-        "Security: Implemented robust authentication (OAuth/JWT) systems for client applications."
+        "Developed core REST and GraphQL APIs using Elixir and Phoenix that formed the backbone of multiple client applications.",
+        "Implemented robust authentication (OAuth/JWT) systems for client applications."
       ]
     }
   ],
@@ -237,30 +292,34 @@
     {
       "id": 1,
       "degree": "PhD in Software Engineering",
-      "institution": "California State University, USA",
+      "institution": "California State University",
+      "location": "USA",
       "period": "2019 – 2022",
       "focus": "Scalable Software Architectures, Distributed Systems, and Performance Modeling"
     },
     {
       "id": 2,
-      "degree": "Software Engineering Bootcamp",
-      "institution": "Moringa School, Kenya",
-      "period": "Professional Certification",
-      "focus": "1,000+ hours of coding practice in Python, Flask/Django, and React.js"
-    },
-    {
-      "id": 3,
       "degree": "MSc in Software Engineering",
-      "institution": "Lincoln University, UK",
+      "institution": "Lincoln University",
+      "location": "UK",
       "period": "2015 – 2017",
       "focus": "Merit"
     },
     {
-      "id": 4,
+      "id": 3,
       "degree": "BSc in Applied Computer Science",
-      "institution": "University of Nairobi, Kenya",
+      "institution": "University of Nairobi",
+      "location": "Kenya",
       "period": "2010 – 2014",
       "focus": "Second Class Honours (Upper Division)"
+    },
+    {
+      "id": 4,
+      "degree": "Software Engineering Bootcamp (Full-Stack)",
+      "institution": "Moringa School",
+      "location": "Kenya",
+      "period": "2022",
+      "focus": "1,000+ hours of coding practice in Python, Flask/Django, and React.js"
     }
   ]
 }

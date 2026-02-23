@@ -2,7 +2,7 @@
 -- Go to: https://app.supabase.com/project/ezhqztbqexzctjwbkbfg/sql/new
 
 -- ============================================
--- CREATE ALL TABLES FOR HAMMAN'S PORTFOLIO
+-- CREATE ALL TABLES FOR VICTOR'S PORTFOLIO
 -- ============================================
 
 -- Projects table
@@ -181,14 +181,14 @@ ON CONFLICT DO NOTHING;
 
 -- Insert testimonials
 INSERT INTO testimonials (name, role, content, rating) VALUES
-('Amina Diallo', 'Software Engineering Lead', 
- 'Hamman''s expertise in AI and full-stack development transformed our product. His ability to implement complex RLHF systems is remarkable.', 5),
+('Amina Diallo', 'Software Engineering Lead',
+ 'Victor''s expertise in AI and full-stack development transformed our product. His ability to implement complex RLHF systems is remarkable.', 5),
 
 ('Kofi Asante', 'AI Startup Founder',
- 'The LLM training platform Hamman developed for our startup exceeded our expectations. Professional, efficient, and innovative.', 5),
+ 'The LLM training platform Victor developed for our startup exceeded our expectations. Professional, efficient, and innovative.', 5),
 
 ('Fatima Okafor', 'Data Science Manager',
- 'Hamman''s technical skills in machine learning are exceptional. He helped us build robust models with outstanding performance.', 5)
+ 'Victor''s technical skills in machine learning are exceptional. He helped us build robust models with outstanding performance.', 5)
 ON CONFLICT DO NOTHING;
 
 -- Insert skills

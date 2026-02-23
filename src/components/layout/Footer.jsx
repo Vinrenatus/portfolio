@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Github, 
-  Linkedin, 
-  Mail, 
-  Code, 
-  Sparkles, 
-  Heart, 
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Code,
+  Sparkles,
+  Heart,
   ArrowUp,
   ExternalLink,
   MapPin,
-  Phone,
   Calendar
 } from 'lucide-react';
 import { PERSONAL_INFO, SOCIAL_LINKS } from '../../constants/config';
@@ -172,18 +171,6 @@ const Footer = () => {
                 <Mail className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                 <a href={`mailto:${PERSONAL_INFO.email}`} className="text-gray-400 hover:text-emerald-400 transition-colors text-sm">
                   {PERSONAL_INFO.email}
-                </a>
-              </motion.li>
-              <motion.li
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.25 }}
-                className="flex items-start gap-3 group"
-              >
-                <Phone className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                <a href={`tel:${PERSONAL_INFO.phone}`} className="text-gray-400 hover:text-emerald-400 transition-colors text-sm">
-                  {PERSONAL_INFO.phone}
                 </a>
               </motion.li>
               <motion.li
